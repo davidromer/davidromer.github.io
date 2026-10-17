@@ -1,20 +1,40 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
-const docencia = await getCollection("docencia");
+const docencia = (await getCollection("docencia")).sort((a, b) => a.data.orden - b.data.orden);
 ---
-<Base titulo="Docencia" descripcion="Experiencia docente: instituciones, cargos y asignaturas con su temario.">
-<h1>Docencia</h1>
-{docencia.length === 0 && <p>Pronto publicaré mi experiencia docente.</p>}
-{docencia.map(({ data: d }) => (
-  <details>
-    <summary>{d.institucion} · <span>{d.cargo}</span> <small>{d.periodo}</small></summary>
-    {d.asignaturas.map(a => (
-      <details>
-        <summary>{a.nombre}</summary>
-        <ul>{a.temario.map(t => <li>{t}</li>)}</ul>
-      </details>
-    ))}
-  </details>
-))}
+<Base titulo="Docencia" descripcion="Experiencia docente: instituciones, cargos, asignaturas y su plan de estudios.">
+  <h1>Docencia</h1>
+  <p class="lead">Abre cada institución para ver las materias y cada materia para ver su plan de estudios.</p>
+  {docencia.length === 0 && <p>Pronto publicaré mi experiencia docente.</p>}
+  {docencia.map(({ data: d }) => (
+    <details>
+      <summary>
+        <span class="acordeon-info">
+          <strong>{d.institucion}</strong>
+          <small>{d.tipo} · {d.cargo} · {d.periodo}</small>
+        </span>
+      </summary>
+      <div class="acordeon-cuerpo">
+        {d.asignaturas.map((a) => (
+          <details>
+            <summary>
+              <span class="acordeon-info">
+                <strong>{a.nombre}</strong>
+                <span>{a.descripcion}</span>
+              </span>
+            </summary>
+            <div class="acordeon-cuerpo">
+              <ul class="tags">{a.temas.map((t) => <li>{t}</li>)}</ul>
+              <ol class="unidades">
+                {a.unidades.map((u, i) => (
+                  <li><span class="n">Unidad {i + 1}</span><b>{u.titulo}</b><span>{u.descripcion}</span></li>
+                ))}
+              </ol>
+            </div>
+          </details>
+        ))}
+      </div>
+    </details>
+  ))}
 </Base>

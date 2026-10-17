@@ -1,16 +1,24 @@
 ---
 import Base from "../layouts/Base.astro";
 import { sitio } from "../lib/sitio";
+import { certificaciones } from "../lib/perfil";
 ---
-<Base titulo="Habilidades" descripcion="Stack de trabajo: Python, Django, FastAPI, PostgreSQL, ML y entrega con Docker.">
+<Base titulo="Habilidades" descripcion="Stack técnico: Python, JavaScript, PHP, C++, bases de datos, nube, IA y metodologías ágiles.">
   <h1>Habilidades</h1>
-  <p>Herramientas que uso en proyectos de software, datos e IA aplicada.</p>
-  {sitio.habilidades.map((grupo) => (
-    <section>
-      <h2>{grupo.grupo}</h2>
-      <ul class="tags">
-        {grupo.items.map((item) => <li>{item}</li>)}
+  <p class="lead">Herramientas que uso en proyectos de software, datos e IA aplicada.</p>
+  {sitio.habilidades.map((cat) => (
+    <section class="categoria">
+      <h2>{cat.grupo}</h2>
+      <ul class="nube">
+        {cat.items.map((i) => <li class={"nivel" in i ? i.nivel : undefined}>{i.nombre}</li>)}
       </ul>
     </section>
   ))}
+  <section class="seccion" aria-labelledby="certs">
+    <p class="etiqueta">// Certificaciones</p>
+    <h2 id="certs">Formación continua</h2>
+    <ul class="certs">
+      {certificaciones.map((c) => <li><div><strong>{c.nombre}</strong><span>{c.entidad}</span></div></li>)}
+    </ul>
+  </section>
 </Base>

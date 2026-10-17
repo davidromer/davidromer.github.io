@@ -1,1 +1,111 @@
-[]
+[
+  {
+    "id": "utp",
+    "institucion": "Universidad Tecnológica de Pereira",
+    "tipo": "Universidad pública",
+    "cargo": "Docente de cátedra",
+    "periodo": "Feb 2024 – actualidad",
+    "orden": 1,
+    "asignaturas": [
+      {
+        "nombre": "Programación 2",
+        "descripcion": "Programación orientada a objetos, estructuras de datos avanzadas, patrones de diseño y desarrollo de aplicaciones robustas en C++ y Java.",
+        "temas": ["POO", "C++", "Java", "Estructuras de datos", "Patrones de diseño"],
+        "unidades": [
+          { "titulo": "Programación orientada a objetos", "descripcion": "Clases, objetos, constructores, destructores, encapsulamiento y abstracción." },
+          { "titulo": "Herencia y polimorfismo", "descripcion": "Herencia simple y múltiple, clases abstractas, interfaces, polimorfismo dinámico y estático." },
+          { "titulo": "Estructuras de datos avanzadas", "descripcion": "Listas enlazadas, pilas, colas, árboles binarios, grafos y tablas hash." },
+          { "titulo": "Algoritmos de ordenamiento y búsqueda", "descripcion": "QuickSort, MergeSort, búsqueda binaria y análisis de complejidad O(n)." },
+          { "titulo": "Patrones de diseño y proyecto final", "descripcion": "Singleton, Factory, Observer. Proyecto integrador aplicando POO y estructuras de datos." }
+        ]
+      },
+      {
+        "nombre": "Arquitectura de Computadores",
+        "descripcion": "Componentes de hardware, organización del computador, representación de datos y ensamblador básico.",
+        "temas": ["Hardware", "CPU", "Memoria", "Ensamblador", "Bus de datos"],
+        "unidades": [
+          { "titulo": "Sistemas numéricos y representación", "descripcion": "Binario, octal, hexadecimal, complemento a 2 y punto flotante IEEE 754." },
+          { "titulo": "Componentes del computador", "descripcion": "CPU, ALU, registros, memoria caché, RAM, ROM y bus de datos." },
+          { "titulo": "Conjunto de instrucciones", "descripcion": "ISA, ciclo de instrucción fetch-decode-execute y modos de direccionamiento." },
+          { "titulo": "Memoria y almacenamiento", "descripcion": "Jerarquía de memoria, memoria virtual, paginación y segmentación." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marillac",
+    "institucion": "Instituto Técnico Marillac",
+    "tipo": "Educación secundaria",
+    "cargo": "Profesor de IA, programación y bases de datos",
+    "periodo": "Jun 2021 – actualidad",
+    "orden": 2,
+    "asignaturas": [
+      {
+        "nombre": "Inteligencia Artificial",
+        "descripcion": "Conceptos fundamentales de IA, aplicaciones prácticas, herramientas y ética de la inteligencia artificial.",
+        "temas": ["IA generativa", "Machine Learning", "Ética de la IA", "Chatbots", "Automatización"],
+        "unidades": [
+          { "titulo": "¿Qué es la inteligencia artificial?", "descripcion": "Historia, conceptos básicos, tipos de IA y ejemplos cotidianos." },
+          { "titulo": "Aprendizaje automático", "descripcion": "Tipos de aprendizaje (supervisado y no supervisado) y ejemplos prácticos." },
+          { "titulo": "Herramientas de IA", "descripcion": "ChatGPT, generadores de imagen, asistentes virtuales y uso responsable." },
+          { "titulo": "Proyectos con IA", "descripcion": "Creación de chatbots simples, clasificadores y proyectos creativos." }
+        ]
+      },
+      {
+        "nombre": "Bases de Datos",
+        "descripcion": "Modelado de datos, SQL y administración de bases de datos relacionales.",
+        "temas": ["SQL", "MySQL", "Entidad-relación", "Normalización", "CRUD"],
+        "unidades": [
+          { "titulo": "Introducción a las bases de datos", "descripcion": "Conceptos, modelos de datos y diagrama entidad-relación." },
+          { "titulo": "SQL básico", "descripcion": "CREATE, SELECT, INSERT, UPDATE, DELETE, WHERE y ORDER BY." },
+          { "titulo": "SQL avanzado", "descripcion": "JOIN, subconsultas, funciones de agregación y GROUP BY." },
+          { "titulo": "Administración y optimización", "descripcion": "Índices, normalización, respaldos y seguridad de datos." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ciaf",
+    "institucion": "Fundación Universitaria CIAF",
+    "tipo": "Universidad",
+    "cargo": "Docente de Ingeniería de Software",
+    "periodo": "Mar 2022 – Dic 2023",
+    "orden": 3,
+    "asignaturas": [
+      {
+        "nombre": "Introducción a la Ingeniería de Software",
+        "descripcion": "Fundamentos del proceso de desarrollo de software, ciclo de vida, metodologías y herramientas básicas para la gestión de proyectos.",
+        "temas": ["SDLC", "Requisitos", "UML", "Metodologías", "Calidad"],
+        "unidades": [
+          { "titulo": "Fundamentos de la ingeniería de software", "descripcion": "Historia, definiciones, roles del ingeniero de software y ética profesional." },
+          { "titulo": "Ciclo de vida del software", "descripcion": "Modelos cascada, espiral, iterativo e incremental. Comparativa y selección." },
+          { "titulo": "Ingeniería de requisitos", "descripcion": "Elicitación, especificación y validación de requisitos funcionales y no funcionales." },
+          { "titulo": "Metodologías ágiles", "descripcion": "Scrum, Kanban, sprints, backlog, historias de usuario y retrospectivas." },
+          { "titulo": "Calidad y pruebas básicas", "descripcion": "Pruebas unitarias y de integración, aseguramiento de calidad y documentación." }
+        ]
+      },
+      {
+        "nombre": "Programación 2",
+        "descripcion": "Programación orientada a objetos, manejo de excepciones, colecciones y desarrollo de aplicaciones con interfaces gráficas.",
+        "temas": ["POO", "Java", "Excepciones", "Colecciones", "GUI"],
+        "unidades": [
+          { "titulo": "POO avanzada", "descripcion": "Herencia, polimorfismo, interfaces, clases abstractas y principios SOLID." },
+          { "titulo": "Manejo de excepciones y archivos", "descripcion": "Try-catch, excepciones personalizadas, lectura y escritura de archivos, serialización." },
+          { "titulo": "Colecciones y genéricos", "descripcion": "ArrayList, HashMap, LinkedList, iteradores y tipos genéricos." },
+          { "titulo": "Interfaces gráficas y proyecto", "descripcion": "Desarrollo de GUI, eventos, MVC básico y proyecto integrador con base de datos." }
+        ]
+      },
+      {
+        "nombre": "Programación 3",
+        "descripcion": "Desarrollo web full-stack, APIs RESTful, frameworks modernos y despliegue de aplicaciones.",
+        "temas": ["PHP", "JavaScript", "REST API", "MySQL", "Frameworks"],
+        "unidades": [
+          { "titulo": "Desarrollo web con PHP", "descripcion": "PHP avanzado, PDO, MVC, sesiones, autenticación y autorización." },
+          { "titulo": "JavaScript avanzado y DOM", "descripcion": "ES6+, promesas, async/await, fetch API y manipulación avanzada del DOM." },
+          { "titulo": "APIs RESTful", "descripcion": "Diseño de APIs REST, verbos HTTP, JSON, autenticación con tokens y documentación." },
+          { "titulo": "Frameworks y despliegue", "descripcion": "Introducción a Laravel y Django, control de versiones con Git y despliegue básico." }
+        ]
+      }
+    ]
+  }
+]

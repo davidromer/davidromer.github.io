@@ -1,16 +1,36 @@
 :root {
-  --color-fondo: #0b1020;
-  --color-superficie: #141a2e;
-  --color-borde: #262f4d;
-  --color-texto: #e6e9f2;
-  --color-suave: #a3abc2;
-  --color-acento: #818cf8;
-  --color-acento-2: #38bdf8;
+  /* Superficies (tema oscuro "code") */
+  --color-fondo: #0a0e17;
+  --color-superficie: #0f1420;
+  --color-superficie-2: #161d2e;
+  --color-superficie-3: #1d2740;
+  --color-borde: rgb(255 255 255 / .09);
+  --color-borde-fuerte: rgb(255 255 255 / .18);
+
+  /* Texto: todos cumplen contraste AA sobre las superficies */
+  --color-texto: #f3f5fa;
+  --color-texto-2: #c7cede;
+  --color-suave: #98a1b8;
+
+  /* Acentos (como texto se usan las variantes claras) */
+  --color-acento: #7f77dd;
+  --color-acento-texto: #a8a2f0;
+  --color-naranja: #d85a30;
+  --color-naranja-texto: #f08a63;
+  --color-azul: #378add;
+  --color-azul-texto: #6aaaf0;
+  --color-verde: #1d9e75;
+  --color-aviso: #d8a530;
+  --degradado: linear-gradient(120deg, var(--color-acento), var(--color-naranja));
+  --color-sobre-acento: #0a0e17;
 
   --fuente-base: "Outfit Variable", system-ui, sans-serif;
   --fuente-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --radio: 12px;
-  --ancho-max: 68rem;
-  --espacio: clamp(1rem, 3vw, 2rem);
+  --radio-s: 8px;
+  --radio: 14px;
+  --radio-l: 22px;
+  --sombra: 0 10px 30px rgb(0 0 0 / .35);
+  --ancho-max: 72rem;
+  --espacio: clamp(1rem, 3vw, 1.75rem);
 }

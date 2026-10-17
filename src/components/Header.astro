@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import foto from "../assets/david.jpg";
 const items = [
   ["/", "Inicio"],
   ["/experiencia/", "Experiencia"],
@@ -14,7 +16,10 @@ const esActual = (href: string) =>
 ---
 <header>
   <nav aria-label="Principal">
-    <a href="/" class="logo">David Romero</a>
+    <a href="/" class="logo">
+      <Image src={foto} alt="" width={72} height={72} densities={[1, 2]} />
+      <span>David Romero</span>
+    </a>
     <button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu">Menú</button>
     <ul id="menu">
       {items.map(([href, texto]) => (

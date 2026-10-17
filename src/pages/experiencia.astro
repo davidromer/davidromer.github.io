@@ -1,28 +1,32 @@
 ---
 import Base from "../layouts/Base.astro";
+import { experienciaProfesional, experienciaDocente } from "../lib/perfil";
+const bloques = [
+  { id: "profesional", etiqueta: "// Trayectoria", titulo: "Experiencia profesional", datos: experienciaProfesional },
+  { id: "docente", etiqueta: "// Academia", titulo: "Experiencia docente", datos: experienciaDocente },
+] as const;
 ---
-<Base titulo="Experiencia" descripcion="Perfil profesional: backend en Python, datos e IA aplicada, con sede en Pereira.">
+<Base titulo="Experiencia" descripcion="Trayectoria profesional y docente: desarrollo de software, bases de datos y enseñanza universitaria.">
   <h1>Experiencia</h1>
-  <p>
-    Ingeniero de Sistemas y Computación en Pereira. Diseño backends en Python
-    (Django, FastAPI), datos y sistemas de recuperación aumentada (RAG).
+  <p class="lead">
+    Más de diez años desarrollando software, administrando bases de datos y enseñando programación.
   </p>
-  <ol class="timeline">
-    <li>
-      <h2>En curso · Legal RAG Assistant</h2>
-      <p>
-        Asistente que responde sobre documentos jurídicos colombianos citando la
-        fuente. Stack: FastAPI, PostgreSQL, pgvector y Docker.
-      </p>
-      <p><a href="/proyectos/legal-rag/">Ver caso de estudio</a></p>
-    </li>
-    <li>
-      <h2>Este sitio</h2>
-      <p>
-        Portafolio estático en Astro: colecciones de contenido, accesibilidad y
-        despliegue en GitHub Pages. El detalle laboral completo se irá publicando
-        aquí; no invento cargos ni empresas hasta tener la ficha lista.
-      </p>
-    </li>
-  </ol>
+  {bloques.map((b) => (
+    <section class="seccion" aria-labelledby={b.id}>
+      <p class="etiqueta">{b.etiqueta}</p>
+      <h2 id={b.id}>{b.titulo}</h2>
+      <div class="cuadricula-2">
+        {b.datos.map((x) => (
+          <article class="card">
+            <div class="card-cuerpo">
+              <h3>{x.cargo}</h3>
+              <p class="centro">{x.empresa}</p>
+              <p class="periodo">{x.periodo}</p>
+              <ul class="logros">{x.logros.map((l) => <li>{l}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
 </Base>

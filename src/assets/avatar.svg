@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-labelledby="avatarTitle">
-  <title id="avatarTitle">David Romero</title>
-  <rect width="320" height="320" rx="160" fill="#141a2e"/>
-  <circle cx="160" cy="160" r="154" fill="none" stroke="#262f4d" stroke-width="6"/>
-  <text x="160" y="178" text-anchor="middle" fill="#818cf8" font-family="Outfit, system-ui, sans-serif" font-size="96" font-weight="700">DR</text>
-</svg>

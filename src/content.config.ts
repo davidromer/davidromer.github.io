@@ -7,7 +7,7 @@ const proyectos = defineCollection({
   schema: ({ image }) => z.object({
     titulo: z.string(),
     resumen: z.string().max(160),            // sirve de meta description
-    estado: z.enum(["produccion", "en-construccion", "documentado"]),
+    estado: z.enum(["produccion", "en-construccion", "planificado", "documentado"]),
     stack: z.array(z.string()).min(1),
     portada: image().optional(),
     portadaAlt: z.string().optional(),       // describe qué muestra la captura
@@ -24,10 +24,15 @@ const cursos = defineCollection({
   schema: z.object({
     titulo: z.string(),
     resumen: z.string(),
+    icono: z.string().optional(),
+    orden: z.number().default(99),
     niveles: z.array(z.object({
       nombre: z.enum(["Elemental", "Intermedio", "Avanzado"]),
       precioUSD: z.number().positive(),
       lecciones: z.number().int().positive(),
+      duracion: z.string(),
+      temas: z.array(z.string()),
+      modulos: z.array(z.object({ titulo: z.string(), descripcion: z.string() })),
       enlaceCompra: z.string().url().optional(),
     })).length(3),
   }),
@@ -38,9 +43,16 @@ const docencia = defineCollection({
   schema: z.object({
     id: z.string(),                          // el loader file() exige un id por objeto
     institucion: z.string(),
+    tipo: z.string(),
     cargo: z.string(),
     periodo: z.string(),
-    asignaturas: z.array(z.object({ nombre: z.string(), temario: z.array(z.string()) })),
+    orden: z.number().default(99),
+    asignaturas: z.array(z.object({
+      nombre: z.string(),
+      descripcion: z.string(),
+      temas: z.array(z.string()),
+      unidades: z.array(z.object({ titulo: z.string(), descripcion: z.string() })),
+    })),
   }),
 });
 

@@ -1,13 +1,46 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import foto from "../assets/david.jpg";
 import { sitio } from "../lib/sitio";
 
 const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID?.trim();
 const action = formspreeId ? `https://formspree.io/f/${formspreeId}` : undefined;
+const canales = [
+  { icono: "✉️", etiqueta: "CORREO", valor: sitio.email, href: `mailto:${sitio.email}`, externo: false },
+  { icono: "🔗", etiqueta: "LINKEDIN", valor: "davidandres-romero-arenas", href: sitio.linkedin, externo: true },
+  { icono: "💻", etiqueta: "GITHUB", valor: "github.com/davidromer", href: sitio.github, externo: true },
+  { icono: "🌎", etiqueta: "UBICACIÓN", valor: `${sitio.ciudad}, ${sitio.pais} (UTC-5)` },
+  { icono: "⏱️", etiqueta: "DISPONIBILIDAD", valor: "Remoto · tiempo completo · horario flexible" },
+] as const;
 ---
 <Base titulo="Contacto" descripcion="Escríbeme para proyectos de software, IA, datos o docencia.">
+  <p class="etiqueta">// Hablemos</p>
   <h1>Contacto</h1>
-  {action ? (
+  <p class="lead">Puedes escribirme por cualquiera de estos canales.</p>
+  <div class="contacto-grid">
+    <ul class="contacto-lista">
+      {canales.map((c) => (
+        <li>
+          {"href" in c ? (
+            <a class="contacto-item" href={c.href} rel={c.externo ? "noopener noreferrer" : undefined}>
+              <span class="icono" aria-hidden="true">{c.icono}</span>
+              <span><small>{c.etiqueta}</small><span>{c.valor}</span></span>
+            </a>
+          ) : (
+            <div class="contacto-item">
+              <span class="icono" aria-hidden="true">{c.icono}</span>
+              <span><small>{c.etiqueta}</small><span>{c.valor}</span></span>
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+    <div class="contacto-foto">
+      <Image src={foto} alt={`Retrato de ${sitio.corto}`} width={448} height={448} densities={[1, 1.5]} />
+    </div>
+  </div>
+  {action && (
     <form action={action} method="POST">
       <label for="n">Nombre</label>
       <input id="n" name="nombre" required autocomplete="name" />
@@ -25,16 +58,5 @@ const action = formspreeId ? `https://formspree.io/f/${formspreeId}` : undefined
       </label>
       <button type="submit">Enviar mensaje</button>
     </form>
-  ) : (
-    <div>
-      <p>
-        El formulario se activa con <code>PUBLIC_FORMSPREE_ID</code> (copia
-        <code>.env.example</code>). Mientras tanto puedes escribirme aquí:
-      </p>
-      <p class="acciones">
-        <a class="btn" href={sitio.github} rel="noopener noreferrer">GitHub</a>
-        <a class="btn" href={sitio.linkedin} rel="noopener noreferrer">LinkedIn</a>
-      </p>
-    </div>
   )}
 </Base>

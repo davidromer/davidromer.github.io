@@ -1,33 +1,78 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import { hrefCorreo } from "../lib/sitio";
+import { pack, precioNivelUSD } from "../lib/perfil";
 
-const cursos = await getCollection("cursos");
+const cursos = (await getCollection("cursos")).sort((a, b) => a.data.orden - b.data.orden);
 ---
-<Base titulo="Cursos" descripcion="Formación en Python, backend y datos. Niveles elemental, intermedio y avanzado.">
-  <h1>Cursos</h1>
-  {cursos.length === 0 && (
+<Base titulo="Cursos" descripcion="Cursos de algoritmos, lógica, C++, Python y Java en tres niveles: elemental, intermedio y avanzado.">
+  <h1>Cursos de pago</h1>
+  <p class="lead">
+    Cursos prácticos dictados por un ingeniero con más de 10 años de experiencia en desarrollo de software y
+    docencia universitaria. Aprende con proyectos reales, del nivel elemental al avanzado.
+  </p>
+  <div class="precio-banner">
+    <p class="precio-grande"><strong>USD {precioNivelUSD}</strong><span>por nivel</span></p>
     <p>
-      Estoy preparando cursos de Python y backend. Mientras tanto puedes revisar
-      los <a href="/proyectos/">proyectos</a> y la sección de <a href="/docencia/">docencia</a>.
+      Cada curso tiene <strong>3 niveles</strong> (elemental, intermedio y avanzado). Paga solo el nivel que
+      necesitas o lleva los 3 con descuento en el pack completo.
     </p>
-  )}
+  </div>
+  {cursos.length === 0 && <p>Estoy preparando los cursos. Mientras tanto revisa los <a href="/proyectos/">proyectos</a>.</p>}
   {cursos.map(({ data: c }) => (
-    <article class="card">
-      <div class="card-cuerpo">
-        <h2>{c.titulo}</h2>
-        <p>{c.resumen}</p>
-        <ul class="niveles">
-          {c.niveles.map((n) => (
-            <li>
-              <strong>{n.nombre}</strong>
-              <span>{n.lecciones} lecciones</span>
-              <span>USD {n.precioUSD}</span>
-              {n.enlaceCompra && <a href={n.enlaceCompra} rel="noopener noreferrer">Inscribirse</a>}
-            </li>
-          ))}
-        </ul>
+    <details>
+      <summary>
+        <span class="icono" aria-hidden="true">{c.icono}</span>
+        <span class="acordeon-info"><strong>{c.titulo}</strong><span>{c.resumen}</span></span>
+      </summary>
+      <div class="acordeon-cuerpo">
+        {c.niveles.map((n) => (
+          <details>
+            <summary>
+              <span class="acordeon-info">
+                <strong>Nivel {n.nombre.toLowerCase()}</strong>
+                <span>USD {n.precioUSD} · {n.lecciones} lecciones · {n.duracion}</span>
+              </span>
+            </summary>
+            <div class="acordeon-cuerpo">
+              <ul class="meta">
+                <li>{n.duracion}</li><li>{n.lecciones} lecciones</li><li>En vivo + grabaciones</li>
+              </ul>
+              <ul class="tags">{n.temas.map((t) => <li>{t}</li>)}</ul>
+              <ol class="unidades">
+                {n.modulos.map((m, i) => (
+                  <li><span class="n">Módulo {i + 1}</span><b>{m.titulo}</b><span>{m.descripcion}</span></li>
+                ))}
+              </ol>
+              <div class="barra-compra">
+                <p class="precio" style="margin:0"><strong>USD {n.precioUSD}</strong> nivel {n.nombre.toLowerCase()}</p>
+                <a
+                  class="btn" rel="noopener noreferrer"
+                  href={n.enlaceCompra ?? hrefCorreo(
+                    `Inscripción: ${c.titulo} – Nivel ${n.nombre}`,
+                    `Hola David, estoy interesado en el curso ${c.titulo} (nivel ${n.nombre}). Me gustaría recibir más información.`,
+                  )}
+                >Inscribirme</a>
+              </div>
+            </div>
+          </details>
+        ))}
       </div>
-    </article>
+    </details>
   ))}
+  {cursos.length > 0 && (
+    <section class="pack" aria-labelledby="pack">
+      <h2 id="pack">{pack.titulo}</h2>
+      <p>{pack.descripcion}</p>
+      <p class="precios"><s>USD {pack.precioAntes}</s><strong>USD {pack.precioAhora}</strong><span>{pack.niveles} niveles</span></p>
+      <a
+        class="btn"
+        href={hrefCorreo(
+          "Inscripción: Pack completo 5 cursos",
+          "Hola David, estoy interesado en el pack completo de los 5 cursos (15 niveles). Me gustaría recibir más información.",
+        )}
+      >Quiero el pack completo</a>
+    </section>
+  )}
 </Base>

@@ -1,12 +1,58 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
-import avatar from "../assets/avatar.svg";
+import foto from "../assets/david.jpg";
+import fondo from "../assets/fondo-ia.jpg";
+import { estadisticas, formacion } from "../lib/perfil";
+import { sitio } from "../lib/sitio";
 ---
-<Base titulo="Inicio" descripcion="Ingeniero de Sistemas en Pereira: Python, Django, FastAPI y ML.">
+<Base titulo="Inicio" descripcion="Ingeniero de Sistemas en Pereira con más de 10 años en desarrollo full-stack, IA y docencia universitaria.">
   <section class="hero">
-    <img class="avatar" src={avatar.src} width="320" height="320" alt="Monograma DR de David Romero" />
-    <h1>David Andrés Romero Arenas</h1>
-    <p>Ingeniero de Sistemas y Computación · Pereira, Colombia</p>
-    <a class="btn" href="/proyectos/">Ver proyectos</a>
+    <div class="hero-texto">
+      <p class="insignia">Disponible para trabajo remoto</p>
+      <h1>David Andrés<br /><span class="degradado-texto">Romero Arenas</span></h1>
+      <p class="hero-sub">
+        Ingeniero de Sistemas con más de 10 años de experiencia en desarrollo full-stack,
+        IA/ML y docencia universitaria. Apasionado por la tecnología y la educación.
+      </p>
+      <div class="acciones">
+        <a class="btn" href="/proyectos/">Ver proyectos</a>
+        <a class="btn btn-borde" href="/contacto/">Contactar</a>
+      </div>
+    </div>
+    <div class="hero-imagen">
+      <div class="hero-fondo">
+        <Image src={fondo} alt="" width={640} format="webp" quality={60} loading="eager" />
+      </div>
+      <div class="hero-foto">
+        <Image
+          src={foto} alt={`Retrato de ${sitio.corto}`} width={576} height={576}
+          densities={[1, 1.5]} sizes="(max-width: 900px) 62vw, 288px" loading="eager"
+        />
+      </div>
+      <span class="chip-flota chip-1">Full-stack</span>
+      <span class="chip-flota chip-2">IA / ML</span>
+      <span class="chip-flota chip-3">Docente</span>
+    </div>
+  </section>
+
+  <ul class="estadisticas" aria-label="Cifras destacadas">
+    {estadisticas.map((e) => <li><strong>{e.valor}</strong><span>{e.etiqueta}</span></li>)}
+  </ul>
+
+  <section class="seccion" aria-labelledby="formacion">
+    <p class="etiqueta">// Educación</p>
+    <h2 id="formacion">Formación académica</h2>
+    <div class="cuadricula-2">
+      {formacion.map((f) => (
+        <article class="card">
+          <div class="card-cuerpo">
+            <h3>{f.titulo}</h3>
+            <p class="centro">{f.institucion}</p>
+            <p class="periodo">{f.periodo}</p>
+          </div>
+        </article>
+      ))}
+    </div>
   </section>
 </Base>
