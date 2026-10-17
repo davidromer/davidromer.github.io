@@ -3,7 +3,7 @@ titulo: "Portafolio web personal con IA"
 resumen: "Sitio personal interactivo con modelos de lenguaje para asistencia automatizada y chatbot de contacto."
 estado: "en-construccion"
 stack: ["React", "Python", "Flask", "OpenAI API", "TailwindCSS"]
-orden: 3
+orden: 4
 idioma: "es"
 ---
 

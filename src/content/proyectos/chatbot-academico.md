@@ -3,7 +3,7 @@ titulo: "Chatbot de asistencia académica"
 resumen: "Bot conversacional que resuelve dudas de algoritmia y programación con NLP y una base de conocimiento propia."
 estado: "planificado"
 stack: ["Python", "NLP", "Flask", "PostgreSQL", "React"]
-orden: 6
+orden: 7
 idioma: "es"
 ---
 

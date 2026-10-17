@@ -1,7 +1,7 @@
 ---
 titulo: "Legal RAG Assistant"
 resumen: "Asistente que responde preguntas sobre documentos jurídicos colombianos citando la fuente exacta."
-estado: "en-construccion"
+estado: "produccion"
 stack: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Docker", "pytest"]
 repo: "https://github.com/davidromer/legal-rag-assistant"
 destacado: true
@@ -26,4 +26,4 @@ El sistema parte los documentos en fragmentos con metadatos (norma, fecha, juris
 
 ## Estado
 
-En construcción. El repositorio concentra el código; este caso de estudio se actualizará con métricas cuando el piloto esté medido.
+Terminado. El repositorio concentra el código del asistente.

@@ -21,7 +21,7 @@ export const formacion = [
 export const experienciaProfesional = [
   {
     cargo: "Ingeniero de Sistemas y Desarrollador de Software",
-    empresa: "SERJUCO – Firma de abogados",
+    empresa: "Servicios Jurídicos – Firma de abogados",
     periodo: "Mayo 2024 – actualidad · Risaralda, Colombia",
     logros: [
       "Lideré la modernización de los sistemas de información y la administración de un servidor local.",
