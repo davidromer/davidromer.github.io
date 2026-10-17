@@ -56,7 +56,7 @@ export const experienciaDocente = [
   {
     cargo: "Docente de cátedra – Algoritmia, Programación y Arquitectura",
     empresa: "Universidad Tecnológica de Pereira",
-    periodo: "Feb 2024 – actualidad · Pereira, Colombia",
+    periodo: "Feb 2024 – junio 2026 · Pereira, Colombia",
     logros: [
       "Diseño y enseñanza de algoritmos en C++ y pseudocódigo.",
       "Mejoré la comprensión lógica de más de 100 estudiantes en un 60 %.",
