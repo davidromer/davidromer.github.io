@@ -22,7 +22,7 @@ export const experienciaProfesional = [
   {
     cargo: "Ingeniero de Sistemas y Desarrollador de Software",
     empresa: "Servicios Jurídicos – Firma de abogados",
-    periodo: "Mayo 2024 – junio 2026 · Risaralda, Colombia",
+    periodo: "Mayo 2024 – Junio 2026 · Risaralda, Colombia",
     logros: [
       "Lideré la modernización de los sistemas de información y la administración de un servidor local.",
       "Desarrollé un aplicativo web de gestión interna en PHP, JavaScript, HTML5, CSS3 y SQL.",
@@ -54,9 +54,9 @@ export const experienciaProfesional = [
 
 export const experienciaDocente = [
   {
-    cargo: "Docente de cátedra – Algoritmia, Programación y Arquitectura",
+    cargo: "Docente de cátedra – Algoritmia, Programación y Arquitectura de Computadores",
     empresa: "Universidad Tecnológica de Pereira",
-    periodo: "Feb 2024 – junio 2026 · Pereira, Colombia",
+    periodo: "Feb 2024 – Junio 2026 · Pereira, Colombia",
     logros: [
       "Diseño y enseñanza de algoritmos en C++ y pseudocódigo.",
       "Mejoré la comprensión lógica de más de 100 estudiantes en un 60 %.",
