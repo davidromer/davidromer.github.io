@@ -3,7 +3,7 @@ titulo: "API de análisis de datos empresariales"
 resumen: "Microservicio RESTful para análisis y visualización de datos empresariales con dashboards en tiempo real."
 estado: "planificado"
 stack: ["Python", "FastAPI", "Pandas", "MongoDB", "D3.js"]
-orden: 6
+orden: 7
 idioma: "es"
 ---
 

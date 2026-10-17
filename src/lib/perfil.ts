@@ -22,7 +22,7 @@ export const experienciaProfesional = [
   {
     cargo: "Ingeniero de Sistemas y Desarrollador de Software",
     empresa: "Servicios Jurídicos – Firma de abogados",
-    periodo: "Mayo 2024 – actualidad · Risaralda, Colombia",
+    periodo: "Mayo 2024 – junio 2026 · Risaralda, Colombia",
     logros: [
       "Lideré la modernización de los sistemas de información y la administración de un servidor local.",
       "Desarrollé un aplicativo web de gestión interna en PHP, JavaScript, HTML5, CSS3 y SQL.",

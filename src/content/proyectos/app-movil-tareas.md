@@ -3,7 +3,7 @@ titulo: "App móvil de gestión de tareas"
 resumen: "Aplicación multiplataforma con sincronización en la nube, notificaciones inteligentes y análisis de productividad."
 estado: "planificado"
 stack: ["React Native", "Node.js", "MongoDB", "AWS"]
-orden: 8
+orden: 9
 idioma: "es"
 ---
 
