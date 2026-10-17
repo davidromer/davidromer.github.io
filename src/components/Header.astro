@@ -1,0 +1,36 @@
+---
+const items = [
+  ["/", "Inicio"],
+  ["/experiencia/", "Experiencia"],
+  ["/proyectos/", "Proyectos"],
+  ["/docencia/", "Docencia"],
+  ["/cursos/", "Cursos"],
+  ["/habilidades/", "Habilidades"],
+  ["/contacto/", "Contacto"],
+] as const;
+const actual = Astro.url.pathname;
+const esActual = (href: string) =>
+  href === "/" ? actual === "/" : actual === href || actual.startsWith(href);
+---
+<header>
+  <nav aria-label="Principal">
+    <a href="/" class="logo">David Romero</a>
+    <button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu">Menú</button>
+    <ul id="menu">
+      {items.map(([href, texto]) => (
+        <li><a href={href} aria-current={esActual(href) ? "page" : undefined}>{texto}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+<script>
+  const b = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+  if (b && menu) {
+    b.addEventListener("click", () => {
+      const open = b.getAttribute("aria-expanded") === "true";
+      b.setAttribute("aria-expanded", String(!open));
+      menu.toggleAttribute("data-open", !open);
+    });
+  }
+</script>

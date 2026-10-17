@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const cursos = await getCollection("cursos");
+---
+<Base titulo="Cursos" descripcion="Formación en Python, backend y datos. Niveles elemental, intermedio y avanzado.">
+  <h1>Cursos</h1>
+  {cursos.length === 0 && (
+    <p>
+      Estoy preparando cursos de Python y backend. Mientras tanto puedes revisar
+      los <a href="/proyectos/">proyectos</a> y la sección de <a href="/docencia/">docencia</a>.
+    </p>
+  )}
+  {cursos.map(({ data: c }) => (
+    <article class="card">
+      <div class="card-cuerpo">
+        <h2>{c.titulo}</h2>
+        <p>{c.resumen}</p>
+        <ul class="niveles">
+          {c.niveles.map((n) => (
+            <li>
+              <strong>{n.nombre}</strong>
+              <span>{n.lecciones} lecciones</span>
+              <span>USD {n.precioUSD}</span>
+              {n.enlaceCompra && <a href={n.enlaceCompra} rel="noopener noreferrer">Inscribirse</a>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  ))}
+</Base>

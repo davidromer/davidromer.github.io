@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import { sitio } from "../lib/sitio";
+
+const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID?.trim();
+const action = formspreeId ? `https://formspree.io/f/${formspreeId}` : undefined;
+---
+<Base titulo="Contacto" descripcion="Escríbeme para proyectos de software, IA, datos o docencia.">
+  <h1>Contacto</h1>
+  {action ? (
+    <form action={action} method="POST">
+      <label for="n">Nombre</label>
+      <input id="n" name="nombre" required autocomplete="name" />
+      <label for="e">Correo</label>
+      <input id="e" name="email" type="email" required autocomplete="email" />
+      <label for="m">Mensaje</label>
+      <textarea id="m" name="mensaje" required rows="5"></textarea>
+      <div class="honeypot" aria-hidden="true">
+        <label>Sitio web <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <label>
+        <input type="checkbox" name="autoriza" required />
+        Autorizo el tratamiento de mis datos para responder este mensaje según la
+        <a href="/privacidad/">política de privacidad</a>.
+      </label>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  ) : (
+    <div>
+      <p>
+        El formulario se activa con <code>PUBLIC_FORMSPREE_ID</code> (copia
+        <code>.env.example</code>). Mientras tanto puedes escribirme aquí:
+      </p>
+      <p class="acciones">
+        <a class="btn" href={sitio.github} rel="noopener noreferrer">GitHub</a>
+        <a class="btn" href={sitio.linkedin} rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </div>
+  )}
+</Base>

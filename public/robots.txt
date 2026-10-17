@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://davidromer.github.io/sitemap-index.xml

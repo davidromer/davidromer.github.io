@@ -1,46 +1,28 @@
-# Astro Starter Kit: Basics
+# Portafolio — David Romero
 
-```sh
-npm create astro@latest -- --template basics
-```
+Sitio estático en [Astro](https://astro.build) con colecciones de contenido, filtro de proyectos en Preact y despliegue en GitHub Pages.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandos
 
-## 🚀 Project Structure
+| Comando | Qué hace |
+| --- | --- |
+| `npm install` | Instala dependencias |
+| `npm run dev` | Servidor local en `localhost:4321` |
+| `npm run check` | `astro check` (tipos) |
+| `npm run build` | Genera `dist/` |
+| `npm run preview` | Sirve el build |
+| `npm test` | Playwright (construye y abre preview si hace falta) |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Contenido
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- Proyectos: `src/content/proyectos/*.md`
+- Docencia: `src/content/datos/docencia.json`
+- Cursos: `src/content/cursos/*.md` (opcional; la página admite lista vacía)
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Contacto
 
-## 🧞 Commands
+Copia `.env.example` a `.env` y pon el id de Formspree en `PUBLIC_FORMSPREE_ID`. Sin esa variable, Contacto muestra GitHub y LinkedIn.
 
-All commands are run from the root of the project, from a terminal:
+## Requisitos
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Node 22 o superior.

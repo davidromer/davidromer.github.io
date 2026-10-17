@@ -1,0 +1,16 @@
+:root {
+  --color-fondo: #0b1020;
+  --color-superficie: #141a2e;
+  --color-borde: #262f4d;
+  --color-texto: #e6e9f2;
+  --color-suave: #a3abc2;
+  --color-acento: #818cf8;
+  --color-acento-2: #38bdf8;
+
+  --fuente-base: "Outfit Variable", system-ui, sans-serif;
+  --fuente-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radio: 12px;
+  --ancho-max: 68rem;
+  --espacio: clamp(1rem, 3vw, 2rem);
+}

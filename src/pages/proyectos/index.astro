@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import FiltroProyectos from "../../components/FiltroProyectos.jsx";
+
+const proyectos = (await getCollection("proyectos"))
+  .filter(p => p.data.idioma === "es")
+  .sort((a, b) => a.data.orden - b.data.orden);
+
+// La isla no puede usar <Image />: optimizamos aquí y le pasamos datos planos
+const lista = await Promise.all(proyectos.map(async ({ id, data }) => {
+  const portada = data.portada && await getImage({ src: data.portada, width: 640, format: "webp" });
+  return {
+    id, titulo: data.titulo, resumen: data.resumen, stack: data.stack,
+    portada: portada && {
+      src: portada.src, width: portada.attributes.width, height: portada.attributes.height,
+      alt: data.portadaAlt ?? `Captura de ${data.titulo}`,
+    },
+  };
+}));
+---
+<Base titulo="Proyectos" descripcion="Casos de estudio de software, IA y datos con código, arquitectura y resultados.">
+  <h1>Proyectos</h1>
+  <FiltroProyectos client:visible proyectos={lista} />
+</Base>

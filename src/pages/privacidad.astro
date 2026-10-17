@@ -1,0 +1,38 @@
+---
+import Base from "../layouts/Base.astro";
+import { sitio } from "../lib/sitio";
+---
+<Base titulo="Política de privacidad" descripcion="Tratamiento de datos personales del formulario de contacto, según la Ley 1581 de 2012.">
+  <article>
+    <h1>Política de privacidad</h1>
+    <p>
+      Responsable: {sitio.nombre}, {sitio.ciudad}, {sitio.pais}.
+      Este sitio recaba datos solo si usas el formulario de contacto.
+    </p>
+    <h2>Datos y finalidad</h2>
+    <p>
+      Nombre, correo y mensaje se usan exclusivamente para responder tu
+      solicitud de proyectos, datos, IA o docencia. No se venden ni se ceden
+      a terceros con fines comerciales.
+    </p>
+    <h2>Encargado del envío</h2>
+    <p>
+      Si el formulario está activo, el mensaje transita por Formspree para
+      entregarlo al responsable. Formspree actúa como encargado del tratamiento
+      de ese envío.
+    </p>
+    <h2>Conservación</h2>
+    <p>
+      Los mensajes se conservan el tiempo necesario para atender la conversación
+      y obligaciones legales, y luego se eliminan.
+    </p>
+    <h2>Tus derechos</h2>
+    <p>
+      Puedes conocer, actualizar, rectificar y suprimir tus datos, y revocar la
+      autorización, escribiendo de nuevo por <a href="/contacto/">contacto</a>
+      o por <a href={sitio.linkedin} rel="noopener noreferrer">LinkedIn</a>.
+    </p>
+    <h2>Cookies</h2>
+    <p>Este sitio estático no usa cookies de analítica ni de publicidad.</p>
+  </article>
+</Base>

@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import { sitio } from "../lib/sitio";
+---
+<Base titulo="Habilidades" descripcion="Stack de trabajo: Python, Django, FastAPI, PostgreSQL, ML y entrega con Docker.">
+  <h1>Habilidades</h1>
+  <p>Herramientas que uso en proyectos de software, datos e IA aplicada.</p>
+  {sitio.habilidades.map((grupo) => (
+    <section>
+      <h2>{grupo.grupo}</h2>
+      <ul class="tags">
+        {grupo.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  ))}
+</Base>

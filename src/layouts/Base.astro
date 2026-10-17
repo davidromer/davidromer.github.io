@@ -1,0 +1,51 @@
+---
+import "../styles/tokens.css";
+import "../styles/global.css";
+import "@fontsource-variable/outfit/wght.css";
+import "@fontsource/jetbrains-mono/latin-400.css";
+import Header from "../components/Header.astro";
+import { sitio } from "../lib/sitio";
+
+interface Props { titulo: string; descripcion: string; imagen?: string; }
+const { titulo, descripcion, imagen = "/og-default.png" } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site);
+const persona = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: sitio.nombre,
+  jobTitle: sitio.cargo,
+  url: Astro.site,
+  address: { "@type": "PostalAddress", addressLocality: sitio.ciudad, addressCountry: "CO" },
+  sameAs: [sitio.github, sitio.linkedin],
+  knowsAbout: [...sitio.knowsAbout],
+};
+---
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{titulo} · {sitio.corto}</title>
+  <meta name="description" content={descripcion} />
+  <link rel="canonical" href={url} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={titulo} />
+  <meta property="og:description" content={descripcion} />
+  <meta property="og:image" content={new URL(imagen, Astro.site)} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" set:html={JSON.stringify(persona)} />
+  <link rel="alternate" hreflang="es-CO" href={url} />
+  <link rel="alternate" hreflang="x-default" href={url} />
+  <script is:inline>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+  <Header />
+  <main id="main"><slot /></main>
+  <footer>
+    <p>© {new Date().getFullYear()} {sitio.nombre} · {sitio.ciudad}, {sitio.pais}</p>
+    <p><a href="/privacidad/">Política de privacidad</a></p>
+  </footer>
+</body>
+</html>

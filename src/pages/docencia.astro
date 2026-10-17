@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+const docencia = await getCollection("docencia");
+---
+<Base titulo="Docencia" descripcion="Experiencia docente: instituciones, cargos y asignaturas con su temario.">
+<h1>Docencia</h1>
+{docencia.length === 0 && <p>Pronto publicaré mi experiencia docente.</p>}
+{docencia.map(({ data: d }) => (
+  <details>
+    <summary>{d.institucion} · <span>{d.cargo}</span> <small>{d.periodo}</small></summary>
+    {d.asignaturas.map(a => (
+      <details>
+        <summary>{a.nombre}</summary>
+        <ul>{a.temario.map(t => <li>{t}</li>)}</ul>
+      </details>
+    ))}
+  </details>
+))}
+</Base>
